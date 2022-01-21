@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+	<!-- <scr/ipt src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
+</head>
+
+<style type="text/css">
+	#mainPopup {
+		padding: 10px;
+		height: 200px;
+		width: 400px;
+		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+	}
+	h1 {
+		font-size: 2em;
+	}
+	div{
+		margin: auto;
+		text-align: center;
+	}
+	button{
+		margin:1%;
+	}
+</style>
+
+<div id="mainPopup">
+	<h1>Tinder Auto Liker</h1>
+	<p>This is just supposed to be funny.</p>
+	<div>
+		<label class="mdc-text-field mdc-text-field--filled">
+			<span class="mdc-text-field__ripple"></span>
+			<span class="mdc-floating-label" id="my-label-id">Max likes</span>
+			<input class="mdc-text-field__input" type="number" aria-labelledby="my-label-id">
+			<span class="mdc-line-ripple"></span>
+		</label>
+		<button id="tinder-button"class="mdc-button mdc-button--raised">
+			<span class="mdc-button__label">Let's jingle</span>
+		</button>
+	</div>
+	<div>
+		<button id="instagram-button"class="mdc-button mdc-button--raised">
+		<span class="mdc-button__label">Show me some love</span>
+	</button>
+	</div>
+</div>
+
+
+<script src="./app.js"></script>

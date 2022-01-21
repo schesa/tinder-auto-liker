@@ -1,0 +1,36 @@
+{
+  "name": "Tinder Auto Liker",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This is just supposed to be funny",
+  "homepage_url": "http://extensionizr.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "tabs",
+    "https://tinder.com/app/recs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://tinder.com/app/recs"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
