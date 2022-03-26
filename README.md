@@ -11,5 +11,5 @@ Chrome extension that spawns a tinder bot for giving random likes
 # Some screenshots and a funny message
 
 ![Screeenshot-1](https://github.com/schesa/tinder-auto-liker/blob/main/tinder-1.jpg)
-![Screeenshot-2](https://github.com/schesa/tinder-auto-liker/blob/main/tinder-1.jpg)
-![Funny-message-1](https://github.com/schesa/tinder-auto-liker/blob/main/tiner-3.jpg)
+![Screeenshot-2](https://github.com/schesa/tinder-auto-liker/blob/main/tinder-2.jpg)
+![Funny-message-1](https://github.com/schesa/tinder-auto-liker/blob/main/tinder-3.jpg)
