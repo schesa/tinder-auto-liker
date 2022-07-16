@@ -32,7 +32,7 @@ chrome.extension.sendMessage({}, function(response) {
 					const MATCH_MESSAGE_EXIT = "#u-1179696122 > div > div > div.CenterAlign.M\\(a\\).Expand.Pos\\(r\\).Fx\\(\\$flx1\\) > div > div.Pos\\(a\\).T\\(0\\).P\\(20px\\).P\\(12px\\)--xs.End\\(0\\) > button"
 
 					// clear superlike ad
-					clickIfExists(AD_EXIT);
+					clickIfExists(SUPERLIKE_MESSAGE_EXIT);
 					// press 'x' when match
 					const match = clickIfExists(MATCH_MESSAGE_EXIT);
 					if(match){
