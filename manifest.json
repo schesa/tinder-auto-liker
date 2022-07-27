@@ -21,12 +21,14 @@
   },
   "permissions": [
     "tabs",
-    "https://tinder.com/app/recs"
+    "https://tinder.com/app/recs",
+    "https://tinder.com/app/messages/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://tinder.com/app/recs"
+        "https://tinder.com/app/recs",
+        "https://tinder.com/app/messages/*"
       ],
       "js": [
         "src/inject/inject.js"
