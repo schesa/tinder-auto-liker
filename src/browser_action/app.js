@@ -4,6 +4,12 @@ document.getElementById('tinder-button').onclick = event=>{
     chrome.tabs.create({ url:`https://tinder.com/app/recs#automate` });
 }
 
+document.getElementById('send-card').onclick = event=>{
+    event.preventDefault();
+    console.log("send card clicked");
+    chrome.tabs.create({ url:`https://tinder.com/app/recs#send-card` });
+}
+
 document.getElementById('instagram-button').onclick = event=>{
     event.preventDefault();
     console.log("shit clicked");
