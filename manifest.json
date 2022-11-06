@@ -22,13 +22,15 @@
   "permissions": [
     "tabs",
     "https://tinder.com/app/recs",
-    "https://tinder.com/app/messages/*"
+    "https://tinder.com/app/messages/*",
+    "https://tinder.com/app/settings/plus/passport#change-location"
   ],
   "content_scripts": [
     {
       "matches": [
         "https://tinder.com/app/recs",
-        "https://tinder.com/app/messages/*"
+        "https://tinder.com/app/messages/*",
+        "https://tinder.com/app/settings/plus/passport"
       ],
       "js": [
         "src/inject/inject.js"
