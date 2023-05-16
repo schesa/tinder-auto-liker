@@ -2,11 +2,10 @@
 
 <head>
 	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-	<!-- <scr/ipt src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
+	<scr/ipt src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.js"></script>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.js"></script>
+	<script src="../../lib/material-design/material-components-web.min.js"></script>
 </head>
 
 <style type="text/css">
@@ -106,7 +105,7 @@
 				<div class="mdc-line-ripple"></div>
 			</div>
 			<div>
-				<button onclick="handleButtonClick()" id="try-chatgpt"
+				<button id="try-chatgpt"
 					class="mdc-button mdc-button--custom mdc-button--outlined">
 					<span class="mdc-button__label">Try <span
 							style="color: #00a67fbf; font-weight: bold;">chatGPT</span>
@@ -127,41 +126,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<script>  mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
-		</script>
+
 		<script src="./app.js"></script>
-		<script>
-			const apiKeyInput = document.getElementById('api-key-input');
-			const sendButton = document.getElementById('try-chatgpt');
-
-			if (apiKeyInput.value.trim() !== '') {
-				// sendButton.disabled = false;
-				sendButton.style.borderColor = '#FF0000';
-			} else {
-				// sendButton.disabled = true;
-				sendButton.style.borderColor = '#424242';
-			}
-
-			apiKeyInput.addEventListener('input', function () {
-				if (apiKeyInput.value.trim() !== '') {
-					// sendButton.disabled = false;
-					sendButton.style.borderColor = '#FF0000';
-				} else {
-					// sendButton.disabled = true;
-					sendButton.style.borderColor = '#424242';
-				}
-			});
-
-			function handleButtonClick() {
-				if (apiKeyInput.value.trim() !== '') {
-					message = 'Starting....';
-				} else {
-					message = 'You need to enter a OpenAPI Key';
-				}
-				const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
-				const snackbarLabel = document.querySelector('.mdc-snackbar__label');
-				snackbarLabel.textContent = message;
-				snackbar.open();
-			}
-		</script>
+		<!-- <script src="./chatGptButton.js"></script> -->
