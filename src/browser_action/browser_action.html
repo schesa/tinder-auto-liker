@@ -1,7 +1,12 @@
 <!doctype html>
+
 <head>
 	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
 	<!-- <scr/ipt src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <style type="text/css">
@@ -11,43 +16,152 @@
 		width: 400px;
 		font-family: Helvetica, Ubuntu, Arial, sans-serif;
 	}
+
 	h1 {
 		font-size: 2em;
 	}
-	div{
+
+	div {
 		margin: auto;
 		text-align: center;
 	}
-	button{
-		margin:1%;
+
+	button {
+		margin: 1%;
+	}
+
+	.mdc-button--custom {
+		background-color: #424242;
+		/* Replace with your desired button background color */
+		color: #fe3c72;
+		/* Replace with your desired button text color */
+	}
+
+	/* Customize the outlined button color */
+	.mdc-button--outlined.mdc-button--custom {
+		border-color: #ffffff;
+		/* Replace with your desired outlined button border color */
+	}
+
+	/* Customize the text color */
+	.mdc-button--custom .mdc-button__label {
+		color: #fe3c72;
+		/* Replace with your desired button text color from inside */
+		/* font-weight: bold; */
+		/* Optional: Customize the font weight */
+	}
+
+	/* Customize the outlined button color */
+	.mdc-button--custom.mdc-button--outlined {
+		border-color: #FF0000;
+		background-color: #ffffff;
+		/* Replace with your desired outlined button border color */
+	}
+
+	#tinder-bot-logo {
+		width: 130px;
+		/* Replace with your desired width */
+		height: auto;
+		/* Automatically adjust the height while maintaining the aspect ratio */
+	}
+
+	/* Add container styles */
+	.button-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		margin-bottom: 10px;
+		/* Adjust the margin as needed */
+		border-bottom: 0, 2px solid #000000;
+		/* Adjust the divider color as needed */
+		padding-bottom: 10px;
+		/* Adjust the padding as needed */
+	}
+
+	.button-container .mdc-text-field {
+		margin-right: 10px;
+		/* Adjust the margin as needed */
 	}
 </style>
 
 <div id="mainPopup">
-	<h1>Tinder Auto Liker</h1>
-	<p>This is just supposed to be funny.</p>
+	<!-- <h1>Tinder Auto Liker</h1> -->
+	<img id="tinder-bot-logo" src="dall-e_logo.png" alt="Tinder Bot Logo">
 	<div>
-		<!-- <label class="mdc-text-field mdc-text-field--filled">
-			<span class="mdc-text-field__ripple"></span>
-			<span class="mdc-floating-label" id="my-label-id">Max likes</span>
-			<input class="mdc-text-field__input" type="number" aria-labelledby="my-label-id">
-			<span class="mdc-line-ripple"></span>
-		</label> -->
-		<button id="tinder-button"class="mdc-button mdc-button--raised">
-			<span class="mdc-button__label">Let's jingle</span>
-		</button>
-	</div>
-	<div>
-		<button id="send-card"class="mdc-button mdc-button--raised">
-			<span class="mdc-button__label">Send card</span>
-		</button>
-	</div>
-	<div>
-		<button id="instagram-button"class="mdc-button mdc-button--outlined">
-		<span class="mdc-button__label">Show me some love</span>
-	</button>
-	</div>
-</div>
+		<div class="button-container">
+			<button id="tinder-button" class="mdc-button mdc-button--custom mdc-button--outlined">
+				<span class="mdc-button__label">Start liking</span>
+			</button>
+		</div>
+		<div class="button-container">
+			<button id="send-card" class="mdc-button mdc-button--custom mdc-button--outlined">
+				<span class="mdc-button__label">Send <i class="fa fa-instagram" style="font-size:18px"></i>
+					contact</span>
+			</button>
+		</div>
+		<div class="button-container">
+			<div class="mdc-text-field">
+				<input id="api-key-input" type="text" class="mdc-text-field__input" placeholder="OpenAI API key">
+				<div class="mdc-line-ripple"></div>
+			</div>
+			<div>
+				<button onclick="handleButtonClick()" id="try-chatgpt"
+					class="mdc-button mdc-button--custom mdc-button--outlined">
+					<span class="mdc-button__label">Try <span
+							style="color: #00a67fbf; font-weight: bold;">chatGPT</span>
+						pickup</span>
+				</button>
+			</div>
+		</div>
+		<div class="button-container">
+			<button id="instagram-button" class="mdc-button mdc-button--custom mdc-button--outlined">
+				<span class="mdc-button__label">Show me some love</span>
+			</button>
+		</div>
+		<div class="mdc-snackbar">
+			<div class="mdc-snackbar__surface">
+				<div class="mdc-snackbar__label" role="status" aria-live="polite"></div>
+				<div class="mdc-snackbar__actions">
+					<button type="button" class="mdc-button mdc-snackbar__action">OK</button>
+				</div>
+			</div>
+		</div>
+		
+		<script>  mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+		</script>
+		<script src="./app.js"></script>
+		<script>
+			const apiKeyInput = document.getElementById('api-key-input');
+			const sendButton = document.getElementById('try-chatgpt');
 
+			if (apiKeyInput.value.trim() !== '') {
+				// sendButton.disabled = false;
+				sendButton.style.borderColor = '#FF0000';
+			} else {
+				// sendButton.disabled = true;
+				sendButton.style.borderColor = '#424242';
+			}
 
-<script src="./app.js"></script>
+			apiKeyInput.addEventListener('input', function () {
+				if (apiKeyInput.value.trim() !== '') {
+					// sendButton.disabled = false;
+					sendButton.style.borderColor = '#FF0000';
+				} else {
+					// sendButton.disabled = true;
+					sendButton.style.borderColor = '#424242';
+				}
+			});
+
+			function handleButtonClick() {
+				if (apiKeyInput.value.trim() !== '') {
+					message = 'Starting....';
+				} else {
+					message = 'You need to enter a OpenAPI Key';
+				}
+				const snackbar = new mdc.snackbar.MDCSnackbar(document.querySelector('.mdc-snackbar'));
+				const snackbarLabel = document.querySelector('.mdc-snackbar__label');
+				snackbarLabel.textContent = message;
+				snackbar.open();
+			}
+		</script>

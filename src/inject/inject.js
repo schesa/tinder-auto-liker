@@ -1,4 +1,4 @@
-const UNIQUE_ID = "#q-1380955487"
+const UNIQUE_ID = "#o1400699221"
 const LIKE_SPEED = 1500;
 //const locations = ["Bucharest", "Budapest", "Milano", "London", "Barcelona", "Berlin", "Cluj"];
 
@@ -76,7 +76,7 @@ function doCardAction(mainInterval) {
 	// }
 
 	const random = Math.random();
-	if (random < 0.8) {
+	if (random < 0.92) {
 		try {
 			LIKE_BUTTON.click();
 			console.log('Like ' + (++likes))
@@ -168,6 +168,8 @@ chrome.extension.sendMessage({}, function (response) {
 					// }, 5000);
 					// }, 13000);
 				});
+			} else if (window.location.hash === '#send-message') {
+				
 			}
 		}
 	}, 10);
